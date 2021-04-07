@@ -40,7 +40,7 @@ export function DisplayLoginPage(req:Request, res:Response, next:NextFunction) :
     res.render('index', 
     { title: 'Login', 
     page: 'login',
-    messages: req.flash('loginMessage'), 
+    message: req.flash('loginMessage'), 
     displayName: req.user ? req.user.displayName : ''   });
   }
 
