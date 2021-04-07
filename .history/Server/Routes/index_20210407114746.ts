@@ -7,8 +7,7 @@ export default router;
 import Contact from "../Models/contact";
 
 //create index controller instance
-import {DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayLoginPage, DisplayProjectsPage, DisplayRegisterPage, DisplayServicesPage, ProcessLoginPage, ProcessLogoutPage, ProcessRegisterPage} from "../Controllers/index";
-
+import {DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayLoginPage, DisplayProjectsPage, DisplayRegisterPage, DisplayServicesPage} from "../Controllers/index";
 
 /* GET home page - with / */
 router.get('/', DisplayHomePage);
@@ -34,14 +33,22 @@ router.get('/login', DisplayLoginPage);
 /* GET register page - with /register */
 router.get('/register', DisplayRegisterPage);
 
-/* process login page - with /login */
-router.post('/login', ProcessLoginPage);
 
-/* process logout page - with /logout */
-router.get('/logout', ProcessLogoutPage);
+/**************** Temporary routes for authentication and registration *********************/
+/* GET login page - with /login */
+router.post('/login', function(req, res, next) 
+{
+  res.redirect('/contact-list');
+});
 
-/* process login page - with /login */
-router.post('/register', ProcessRegisterPage);
+
+
+/* GET logout page - with /logout */
+router.get('/logout', function(req, res, next) 
+{
+  res.render('index', { title: 'Logout', page: 'logout', displayName: ''    });
+});
+
 
 /********************** temporary routes - contact-list related pages **********************/
 /* GET contact-list page - with /contact-list */

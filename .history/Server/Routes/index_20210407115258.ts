@@ -34,6 +34,8 @@ router.get('/login', DisplayLoginPage);
 /* GET register page - with /register */
 router.get('/register', DisplayRegisterPage);
 
+
+/**************** Temporary routes for authentication and registration *********************/
 /* process login page - with /login */
 router.post('/login', ProcessLoginPage);
 

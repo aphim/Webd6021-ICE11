@@ -10,6 +10,7 @@ import Contact from "../Models/contact";
 import {DisplayAboutPage, DisplayContactPage, DisplayHomePage, DisplayLoginPage, DisplayProjectsPage, DisplayRegisterPage, DisplayServicesPage, ProcessLoginPage, ProcessLogoutPage, ProcessRegisterPage} from "../Controllers/index";
 
 
+
 /* GET home page - with / */
 router.get('/', DisplayHomePage);
 
@@ -34,6 +35,8 @@ router.get('/login', DisplayLoginPage);
 /* GET register page - with /register */
 router.get('/register', DisplayRegisterPage);
 
+
+/**************** Temporary routes for authentication and registration *********************/
 /* process login page - with /login */
 router.post('/login', ProcessLoginPage);
 
