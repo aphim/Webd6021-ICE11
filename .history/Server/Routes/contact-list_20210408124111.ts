@@ -7,21 +7,21 @@ export default router;
 import { AuthGuard } from '../Util/index';
 
 /* GET contact-list page - with /contact-list */
-router.get('/', AuthGuard, DisplayContactListPage);
+router.get('/', DisplayContactListPage);
 
 /* Display edit/:id page - with /edit/:id */
-router.get('/edit/:id', AuthGuard, DisplayEditPage);
+router.get('/edit/:id', DisplayEditPage);
 
 /* Process edit/:id page - with /edit/:id */
-router.post('/edit/:id', AuthGuard, ProcessEditPage);
+router.post('/edit/:id', ProcessEditPage);
 
 /* Display add page - with /add */
-router.get('/add', AuthGuard, DisplayAddPage);
+router.get('/add', DisplayAddPage);
 
 /* Process edit/:id page - with /edit/:id */
-router.post('/add', AuthGuard, ProcessAddPage);
+router.post('/add', ProcessAddPage);
 
 /* Process delete/:id page - with /delete/:id */
-router.get('/delete/:id', AuthGuard, ProcessDeletePage);
+router.get('/delete/:id', ProcessDeletePage);
 
 

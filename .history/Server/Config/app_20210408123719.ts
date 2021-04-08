@@ -67,6 +67,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+import { AuthGuard } from '../Util/index';
 
 //route config
 app.use('/', indexRouter);
