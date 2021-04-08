@@ -123,7 +123,7 @@ namespace core
     }
     function displayRegister():void
     {
-      //TODO validation
+
     }
     
 

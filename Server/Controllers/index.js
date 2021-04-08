@@ -32,14 +32,19 @@ function DisplayLoginPage(req, res, next) {
         res.render('index', { title: 'Login',
             page: 'login',
             messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.displayName : '' });
+            displayName: req.user ? req.user.displayName : ''
+        });
     }
     return res.redirect('/contact-list');
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {
     if (!req.user) {
-        res.render('index', { title: 'Register', page: 'register', displayName: '' });
+        res.render('index', { title: 'Register',
+            page: 'register',
+            messages: req.flash('registerMessage'),
+            displayName: req.user ? req.user.displayName : ''
+        });
     }
     return res.redirect('/contact-list');
 }
