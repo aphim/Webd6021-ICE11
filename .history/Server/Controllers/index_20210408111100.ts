@@ -5,8 +5,16 @@ import passport from 'passport';
 //create user model
 import User from '../Models/user';
 
-//Util Function
-import {UserDisplayName} from '../Util/index';
+//helper Function
+function UserDisplayName(req: Request): string
+{
+  if(req.user)
+  {
+    let user = req.user as UserDocument;
+    return user.displayName.toString();
+  }
+  return '';
+}
 
 //Display Page Functions
 export function DisplayHomePage(req:Request, res:Response, next:NextFunction) :void

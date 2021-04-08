@@ -1,37 +1,36 @@
 import express, { Request, Response, NextFunction } from 'express';
+const router = express.Router();
 
+import mongoose from 'mongoose';
 import passport from 'passport';
 
 //create user model
 import User from '../Models/user';
 
-//Util Function
-import {UserDisplayName} from '../Util/index';
-
 //Display Page Functions
 export function DisplayHomePage(req:Request, res:Response, next:NextFunction) :void
 {
-  res.render('index', { title: 'Home', page: 'home', displayName: UserDisplayName(req) });
+  res.render('index', { title: 'Home', page: 'home', displayName: req.user ? req.user.displayName : ''   });
 }
 
 export function DisplayAboutPage(req:Request, res:Response, next:NextFunction) :void
 {
-    res.render('index', { title: 'About Us', page: 'about', displayName: UserDisplayName(req)   });
+    res.render('index', { title: 'About Us', page: 'about', displayName: req.user ? req.user.displayName : ''    });
 }
 
 export function DisplayServicesPage(req:Request, res:Response, next:NextFunction) :void
 {
-    res.render('index', { title: 'Our Services', page: 'services', displayName: UserDisplayName(req)  });
+    res.render('index', { title: 'Our Services', page: 'services', displayName: req.user ? req.user.displayName : ''    });
 }
 
 export function DisplayProjectsPage(req:Request, res:Response, next:NextFunction) :void
 {
-    res.render('index', { title: 'Our Projects', page: 'projects', displayName: UserDisplayName(req) });
+    res.render('index', { title: 'Our Projects', page: 'projects', displayName: req.user ? req.user.displayName : ''    });
 }
 
 export function DisplayContactPage(req:Request, res:Response, next:NextFunction) :void
 {
-    res.render('index', { title: 'Contact Us', page: 'contact', displayName: UserDisplayName(req)   });
+    res.render('index', { title: 'Contact Us', page: 'contact', displayName: req.user ? req.user.displayName : ''    });
 }
 
 export function DisplayLoginPage(req:Request, res:Response, next:NextFunction) :void
@@ -42,7 +41,7 @@ export function DisplayLoginPage(req:Request, res:Response, next:NextFunction) :
     { title: 'Login', 
       page: 'login',
       messages: req.flash('loginMessage'), 
-      displayName: UserDisplayName(req) 
+      displayName: req.user ? req.user.displayName : '' 
     });
   }
 
@@ -57,7 +56,7 @@ export function DisplayRegisterPage(req:Request, res:Response, next:NextFunction
     { title: 'Register',
       page: 'register',
       messages: req.flash('registerMessage'), 
-      displayName: UserDisplayName(req)
+      displayName: req.user ? req.user.displayName : ''
     });
   }
     
@@ -134,5 +133,5 @@ export function ProcessLogoutPage(req:Request, res:Response, next:NextFunction) 
 
 export function ProcessContactPage(req:Request, res:Response, next:NextFunction) :void
 {
-  res.render('index', { title: 'Home', page: 'home', displayName: UserDisplayName(req)});
+  res.render('index', { title: 'Home', page: 'home', displayName: req.user ? req.user.displayName : ''   });
 }
